@@ -139,5 +139,21 @@ root.protocol("WM_DELETE_WINDOW", on_closing)
 # app.pack(fill=tk.BOTH, expand=tk.YES)
 # app.animate = 1
 # app.after(100, app.printContext)
-root.mainloop()
 # app.mainloop()
+
+colour = ["red", "green", "blue"]
+cctr = 0
+
+
+def CBHDLR():
+    # print("aaa")
+    global cctr
+    child1.config(bg=colour[cctr % 3])
+    cctr += 1
+    root.after(160, CBHDLR)
+
+
+root.after(160, CBHDLR)
+root.mainloop()
+# while True:
+#     root.update()
